@@ -32,7 +32,7 @@ Here's a walkthrough of implemented required features:
 
 <a href="https://www.loom.com/share/1c272aed36394269b9d974c7cd82e0ea">
     <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/1c272aed36394269b9d974c7cd82e0ea-with-play.gif">
-  </a>
+</a>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
