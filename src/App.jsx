@@ -30,7 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        <h1>My favorite song by each artist</h1>
+        <h1>Favorite Songs By Favorite Artists</h1>
         <h2>What are the following artists best songs?</h2>
         <h4>Number of Cards: {cards.length} </h4>
         <div className='container'>
