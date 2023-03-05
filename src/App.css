@@ -28,6 +28,14 @@
   
 }
 
+.container{
+  background-color: rgba(25, 20, 20, 0.87);
+}
+.container:hover{
+  background-color: rgba(25, 20, 20, 0.98);
+  transition: .15s;
+}
+
 .card .front, .card .back{
   position: absolute;
   padding: 1rem;
@@ -46,8 +54,8 @@
 
 
 .card:hover{
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-  background-color: rgba(25, 20, 20, 0.87);
+  box-shadow: 0 0 5px 2px white;
+  
 }
 
 .card img {

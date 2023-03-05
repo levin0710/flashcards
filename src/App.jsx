@@ -7,19 +7,25 @@ const App = () => {
 
   const [cards, setCards] = useState(CARDS)
   const [count, setCount] = useState(1);
+  
+  const[flip, setFlip] = useState(false);
   const plusCount = () => 
   {if(count == cards.length - 1){
     setCount(0);
   } else {
     setCount(count + 1);
-  }}
+  }
+  setFlip(true);
+}
 
   const minusCount = () => 
   {if(count == 0){
     setCount(cards.length - 1);
   } else {
     setCount(count - 1);
-  }}
+  }
+  setFlip(true);
+}
   
   return (
     <div className="App">
@@ -27,7 +33,9 @@ const App = () => {
         <h1>My favorite song by each artist</h1>
         <h2>What are the following artists best songs?</h2>
         <h4>Number of Cards: {cards.length} </h4>
-        <Card flashcard={cards[count]}/>
+        <div className='container'>
+          <Card flashcard={cards[count]} flip={flip}/>
+        </div>
         <div className='buttons'>
           <button type="back" class="prevCard" onClick={minusCount}>←</button>
           <button type="next" class="nextCard" onClick={plusCount}>→</button>
