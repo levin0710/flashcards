@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Card from './components/Card'
+import GuessForm from './components/GuessForm'
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         <div className='container'>
           <Card flashcard={cards[count]} flip={flip}/>
         </div>
+        <GuessForm></GuessForm>
         <div className='buttons'>
           <button type="back" class="prevCard" onClick={minusCount}>←</button>
           <button type="next" class="nextCard" onClick={plusCount}>→</button>

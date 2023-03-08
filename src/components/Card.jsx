@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Card.css'
 
 const Card = (props) => {
     const[flip, setFlip] = useState(false);
