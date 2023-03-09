@@ -4,33 +4,30 @@ import {useState} from 'react';
 
 const GuessForm = ({submitForm}) => {
   //state with the post form object
-  const [postForm, setPostForm] = useState({name: '', description: ''})
+  const [inputValue, setInputValue] = useState('');
 
+  const[correct, setCorrect] = useState(null);
 
   // handle change to update postForm
     const handleChange = (e) => {
-    const newPostForm = {}
-  // this is the value in <input /> and <textarea />
-    const newValue = e.target.value
-
-  // this is the name in <input /> and <textarea />
-    const key = e.target.name
-    newPostForm[key] = newValue
-    setPostForm({...postForm, ...newPostForm})
+     setInputValue(e.target.value);
+     setCorrect(null)
   }
   
   const handleOnSubmit = (e) => {
     //all about event prevent default: https://www.w3schools.com/jsref/event_preventdefault.asp
     e.preventDefault()
-    submitForm(postForm)
+    const value = submitForm(inputValue)
+    setCorrect(value);
+    setInputValue('');
 }
   return(
-    <div>
+    <div onLoad={() => setInputValue('')}>
     <form onSubmit={handleOnSubmit}>  
         <label>
             What do you think is this artists best song?
         </label>
-        <input className='box' value={postForm.name} type="text" onChange={handleChange} name="name" placeholder="Guess the song here"/>
+        <input className={`box ${correct == null ? '' : correct ? 'correct' : 'wrong'}`} name="name" onChange={handleChange} placeholder="Guess the song here" value={inputValue}/>
         <input type="submit" value="Submit" className="action-button" />
     </form>
     </div>

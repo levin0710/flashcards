@@ -1,22 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 import Card from './components/Card'
-import GuessForm from './components/GuessForm'
+
 
 
 const App = () => {
 
   const [cards, setCards] = useState(CARDS)
   const [count, setCount] = useState(1);
-  
-  const[flip, setFlip] = useState(false);
   const plusCount = () => 
   {if(count == cards.length - 1){
     setCount(0);
   } else {
     setCount(count + 1);
   }
-  setFlip(true);
 }
 
   const minusCount = () => 
@@ -25,9 +22,9 @@ const App = () => {
   } else {
     setCount(count - 1);
   }
-  setFlip(true);
 }
   
+
   return (
     <div className="App">
       <div>
@@ -35,9 +32,8 @@ const App = () => {
         <h2>What are the following artists best songs?</h2>
         <h4>Number of Cards: {cards.length} </h4>
         <div className='container'>
-          <Card flashcard={cards[count]} flip={flip}/>
+          <Card flashcard={cards[count]}/>
         </div>
-        <GuessForm></GuessForm>
         <div className='buttons'>
           <button type="back" class="prevCard" onClick={minusCount}>←</button>
           <button type="next" class="nextCard" onClick={plusCount}>→</button>

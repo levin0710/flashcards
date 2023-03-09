@@ -7,13 +7,14 @@ form{
     padding: 10px;
     box-sizing: border-box;
     width: 80%;
-    margin: 50px;
+    margin: 20px;
     width: 400px;
-    margin: 50px auto;
+    margin: 20px auto;
     text-align: center;
     position: relative;
     display: inline-flex;
     color: white;
+    place-items: center;
 }
   h3{
     font-weight: normal;
@@ -22,7 +23,7 @@ form{
     margin-bottom: 20px;
   }
   input, textarea {
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 10px;
@@ -32,7 +33,9 @@ form{
     color: #2C3E50;
     font-size: 13px;
   }
-  
+  label{
+    font-size: 13px;
+  }
   .action-button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -45,8 +48,27 @@ form{
     transition: border-color 0.25s;
     margin: 2em;
     color: white;
+    width: 7em;
+    height: 3em;
 }
   
    .action-button:hover,.action-button:focus {
     border-color: white;
+  }
+
+  .box  {
+    border-color: blue;
+    border-width: 4px;
+    width: 25em;
+    height: 3em;
+  }
+
+  .box.wrong  {
+    border-color: red;
+    border-width: 4px;
+  }
+
+  .box.correct  {
+    border-color: #1DB954;
+    border-width: 4px;
   }
