@@ -5,17 +5,37 @@ import GuessForm from "./GuessForm";
 const Card = (props) => {
     const[flip, setFlip] = useState(false);
     const submitForm = (userInput) => {
-        
+        const MAX_EDIT_DISTANCE = 3;
         if (!flip){
-            if (props.flashcard.song.toLowerCase().includes(userInput.toLowerCase())){
-                setFlip(true)
-                return true;
-            }
-        setFlip(true)
-        return false;
+          const songName = props.flashcard.song.toLowerCase();
+          const input = userInput.toLowerCase();
+          if (input.length == 0) {
+            return null;
+          }
+          if (songName.includes(input) || editDistance(songName, input) <= MAX_EDIT_DISTANCE){
+            setFlip(true);
+            return true;
+          }
+          setFlip(true);
+          return false;
         }
-        return null
+        return null;
       }
+      
+      function editDistance(str1, str2) {
+        const m = str1.length, n = str2.length;
+        const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+        for (let i = 0; i <= m; i++) {
+          for (let j = 0; j <= n; j++) {
+            if (i === 0) dp[i][j] = j;
+            else if (j === 0) dp[i][j] = i;
+            else if (str1[i - 1] === str2[j - 1]) dp[i][j] = dp[i - 1][j - 1];
+            else dp[i][j] = 1 + Math.min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]);
+          }
+        }
+        return dp[m][n];
+      }
+      
     return (
         <div>
             <div className="container">
@@ -34,7 +54,7 @@ const Card = (props) => {
                     </div>       
                 </div>
             </div>
-            <GuessForm submitForm={submitForm} />
+            <GuessForm className='form' submitForm={submitForm} />
         </div>
     )
 }

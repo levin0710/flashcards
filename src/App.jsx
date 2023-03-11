@@ -23,6 +23,15 @@ const App = () => {
     setCount(count - 1);
   }
 }
+
+  const shuffleCards = () => {
+    const shuffled = [...cards]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setCards(shuffled)
+  }
   
 
   return (
@@ -31,11 +40,12 @@ const App = () => {
         <h1>Favorite Songs By Favorite Artists</h1>
         <h2>What are the following artists best songs?</h2>
         <h4>Number of Cards: {cards.length} </h4>
-        <div className='container'>
+        <div>
           <Card flashcard={cards[count]}/>
         </div>
         <div className='buttons'>
           <button type="back" class="prevCard" onClick={minusCount}>←</button>
+          <button type="shuffle" class="shuffle" onClick={shuffleCards}>Shuffle</button>
           <button type="next" class="nextCard" onClick={plusCount}>→</button>
         </div>
         
